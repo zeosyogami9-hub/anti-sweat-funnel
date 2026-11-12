@@ -3,134 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIBA Tech - Camiseta Interior Anti-Sudor</title>
+  <title>VIBA Tech - Camiseta Interior Anti-Sudor Triple Capa</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .badge-pulse { animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+    .badge-pulse { animation: pulse 1.8s infinite; }
+    .progress-bar-fill { animation: loadBar 2s ease-out forwards; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.85; transform: scale(0.98); } }
+    @keyframes loadBar { from { width: 100%; } to { width: 18%; } }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased pb-24">
+<body class="bg-slate-50 text-slate-900 antialiased pb-28">
 
-  <!-- Top Announcement Bar -->
-  <div class="bg-indigo-600 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
-    ⚡ OFERTA LIMITADA: ENVÍO GRATIS EN 24/48H A TODA ESPAÑA | PAGO SEGURO CON BIZUM Y TARJETA
+  <!-- Countdown Urgent Bar -->
+  <div class="bg-gradient-to-r from-rose-600 via-rose-500 to-indigo-600 text-white text-[11px] sm:text-xs font-bold py-2 px-3 text-center tracking-wide flex items-center justify-center space-x-2 shadow-sm sticky top-0 z-50">
+    <span class="inline-block w-2 h-2 rounded-full bg-white animate-ping"></span>
+    <span>OFERTA FLASH: ENVÍO 24H GRATIS + HASTA -30% FINALIZA EN:</span>
+    <span id="countdown-timer" class="bg-black/30 px-2 py-0.5 rounded font-mono font-black tracking-widest text-yellow-300">11:42</span>
   </div>
 
-  <!-- Header minimaliste sans fuite de trafic -->
-  <header class="bg-white border-b border-slate-100 py-3 sticky top-0 z-40 shadow-sm">
+  <!-- Live Sale Notification Toast -->
+  <div id="live-sales-toast" class="fixed top-12 right-4 z-40 bg-white/95 backdrop-blur border border-slate-200 rounded-xl shadow-xl p-2.5 flex items-center space-x-3 max-w-xs transition-all duration-500 transform translate-y-[-120%] opacity-0">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" alt="Comprador" class="w-9 h-9 rounded-full object-cover border border-indigo-200">
+    <div class="text-[11px] leading-tight">
+      <p class="font-bold text-slate-900"><span id="buyer-name">David M.</span> (Sevilla)</p>
+      <p class="text-slate-500">Ha pedido <strong class="text-indigo-600">Pack 3 Camisetas</strong></p>
+      <span class="text-[9px] text-emerald-600 font-semibold">Hace 4 minutos • Compra verificada</span>
+    </div>
+  </div>
+
+  <!-- Header minimaliste épuré sans distractions -->
+  <header class="bg-white border-b border-slate-100 py-3">
     <div class="max-w-xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center space-x-2">
-        <span class="text-xl font-extrabold tracking-tight text-slate-900">VIBA<span class="text-indigo-600">SHIELD</span></span>
+        <span class="text-xl font-black tracking-tight text-slate-900">VIBA<span class="text-indigo-600">TECH</span></span>
+        <span class="text-[9px] font-extrabold uppercase bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full">Oficial España</span>
       </div>
-      <div class="flex items-center space-x-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-1"></span> En Stock (España)
+      <div class="flex items-center space-x-1.5 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Stock en Almacén (Madrid)</span>
       </div>
     </div>
   </header>
 
   <main class="max-w-xl mx-auto px-4 pt-4">
 
-    <!-- Social Proof Header -->
-    <div class="flex items-center justify-center space-x-2 text-xs font-medium text-slate-600 mb-2">
+    <!-- Social Proof Rating -->
+    <div class="flex items-center justify-center space-x-2 text-xs font-semibold text-slate-600 mb-2">
       <div class="flex text-amber-400">★★★★★</div>
-      <span class="font-bold text-slate-800">4.9/5</span>
-      <span>•</span>
-      <span>+6.400 profesionales en España</span>
+      <span class="font-extrabold text-slate-900">4.92 / 5</span>
+      <span class="text-slate-300">•</span>
+      <span class="underline decoration-dotted text-slate-700">+8.740 clientes satisfechos</span>
     </div>
 
-    <!-- Main Title -->
+    <!-- Main Title & Problem-Agitation -->
     <h1 class="text-2xl sm:text-3xl font-extrabold text-center leading-tight tracking-tight text-slate-900 mb-2">
-      Di adiós a las manchas de sudor y recupera tu seguridad.
+      Recupera tu seguridad y nunca más te preocupes por las aureolas de sudor
     </h1>
-    <p class="text-sm text-center text-slate-600 mb-4">
-      La camiseta técnica invisible con triple almohadilla ultra-absorbente. Bloquea el 100% del sudor y los malos olores debajo de tu camisa.
+    <p class="text-xs sm:text-sm text-center text-slate-600 mb-4 leading-relaxed">
+      La primera camiseta interior con tecnología <strong>SweatGuard™ de 3 capas impermeables</strong> en axilas. Bloquea el 100% del sudor y olor antes de que toque tu camisa.
     </p>
 
-    <!-- Visual / Demo Container -->
+    <!-- Visual Product Demo Card -->
     <div class="relative bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-5">
-      <div class="aspect-[4/3] bg-gradient-to-tr from-slate-100 to-indigo-50 flex flex-col items-center justify-center p-6 text-center">
-        <div class="w-24 h-24 rounded-full bg-indigo-100 flex items-center justify-center mb-3 shadow-inner">
-          <svg class="w-12 h-12 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-          </svg>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80" alt="Camiseta técnica interior invisible" class="w-full aspect-[4/3] object-cover">
+        
+        <!-- Live badges overlaid -->
+        <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">
+          🛡️ Almohadilla axilar triple capa
         </div>
-        <p class="font-bold text-slate-900 text-sm">Tecnología SweatBarrier™ 3 Capas</p>
-        <p class="text-xs text-slate-500 max-w-xs mt-1">Impermeable por fuera, transpirable y suave por dentro. Cuello profundo en V que no se ve.</p>
+        <div class="absolute bottom-3 right-3 bg-emerald-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-lg shadow-lg flex items-center space-x-1">
+          <span>✓</span><span>TEST DE RESISTENCIA: 12 HORAS SECO</span>
+        </div>
       </div>
-      <div class="grid grid-cols-3 divide-x divide-slate-100 bg-white py-2 text-center text-xs">
-        <div><span class="block font-bold text-slate-800">100%</span><span class="text-slate-500 text-[10px]">Sin Manchas</span></div>
-        <div><span class="block font-bold text-slate-800">0%</span><span class="text-slate-500 text-[10px]">Olores</span></div>
-        <div><span class="block font-bold text-slate-800">100%</span><span class="text-slate-500 text-[10px]">Invisible</span></div>
+
+      <!-- Feature Pill Grid -->
+      <div class="grid grid-cols-3 divide-x divide-slate-100 bg-slate-50/80 py-2.5 text-center text-xs border-t border-slate-100">
+        <div>
+          <span class="block font-black text-slate-900 text-sm">100%</span>
+          <span class="text-slate-500 text-[10px] uppercase font-bold">Cero Manchas</span>
+        </div>
+        <div>
+          <span class="block font-black text-slate-900 text-sm">Invisible</span>
+          <span class="text-slate-500 text-[10px] uppercase font-bold">Cuello en V profundo</span>
+        </div>
+        <div>
+          <span class="block font-black text-slate-900 text-sm">Plata Pura</span>
+          <span class="text-slate-500 text-[10px] uppercase font-bold">Antibakteriell / Sin olor</span>
+        </div>
       </div>
     </div>
 
-    <!-- Bundle Offer Selector (High AOV Funnel Core) -->
+    <!-- Scarcity Stock Indicator -->
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-5">
+      <div class="flex items-center justify-between text-xs font-bold text-amber-900 mb-1.5">
+        <span class="flex items-center space-x-1">
+          <span>⚠️</span>
+          <span>Demanda muy alta: solo quedan 9 unidades en almacén</span>
+        </span>
+        <span class="text-rose-600">82% vendido</span>
+      </div>
+      <div class="w-full bg-amber-200/60 rounded-full h-2 overflow-hidden">
+        <div class="bg-amber-500 h-2 rounded-full w-[18%]"></div>
+      </div>
+    </div>
+
+    <!-- Conversion Core: Bundle Pack Selector -->
     <div class="mb-5">
       <div class="flex items-center justify-between mb-2">
-        <h2 class="text-sm font-bold uppercase tracking-wider text-slate-800">Elige tu Pack con Descuento</h2>
-        <span class="text-xs text-rose-600 font-bold badge-pulse">🔥 Más del 74% elige el Pack 3</span>
+        <h2 class="text-xs font-black uppercase tracking-wider text-slate-800">Elige tu oferta con descuento</h2>
+        <span class="text-xs text-rose-600 font-extrabold badge-pulse flex items-center space-x-1">
+          <span>🔥</span><span>La opción favorita de los clientes</span>
+        </span>
       </div>
 
       <div class="space-y-3" id="bundle-selector">
         
         <!-- Pack 1 -->
-        <label class="bundle-card block relative bg-white border-2 border-slate-200 rounded-xl p-3.5 cursor-pointer transition-all hover:border-indigo-400">
+        <label class="bundle-card block relative bg-white border-2 border-slate-200 rounded-2xl p-4 cursor-pointer transition-all hover:border-slate-400">
           <input type="radio" name="bundle" value="pack1" class="hidden" onchange="selectBundle('pack1')">
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
               <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center"></span>
               <div>
-                <p class="text-sm font-bold text-slate-900">1 Camiseta de Prueba</p>
-                <p class="text-xs text-slate-500">Para probar la tecnología</p>
+                <p class="text-sm font-extrabold text-slate-900">1 Camiseta de Prueba</p>
+                <p class="text-xs text-slate-500">Para probar la tecnología 1 día</p>
               </div>
             </div>
             <div class="text-right">
-              <span class="text-base font-extrabold text-slate-900">29,99€</span>
-              <span class="block text-[10px] text-slate-400">+ 3,99€ envío</span>
+              <span class="text-base font-black text-slate-950">29,99€</span>
+              <span class="block text-[10px] text-slate-400 font-medium">+ 3,99€ envío</span>
             </div>
           </div>
         </label>
 
         <!-- Pack 2 -->
-        <label class="bundle-card block relative bg-white border-2 border-slate-200 rounded-xl p-3.5 cursor-pointer transition-all hover:border-indigo-400">
+        <label class="bundle-card block relative bg-white border-2 border-slate-200 rounded-2xl p-4 cursor-pointer transition-all hover:border-slate-400">
           <input type="radio" name="bundle" value="pack2" class="hidden" onchange="selectBundle('pack2')">
-          <span class="absolute -top-2.5 right-3 bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Ahorra 10€</span>
+          <span class="absolute -top-2.5 right-4 bg-slate-900 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Ahorra 10€</span>
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
               <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center"></span>
               <div>
-                <p class="text-sm font-bold text-slate-900">Pack 2 Camisetas</p>
-                <p class="text-xs text-emerald-600 font-semibold">Envío Gratis 24/48h</p>
+                <p class="text-sm font-extrabold text-slate-900">Pack 2 Camisetas</p>
+                <p class="text-xs text-emerald-600 font-bold">✓ Envío Express Gratis</p>
               </div>
             </div>
             <div class="text-right">
-              <span class="text-base font-extrabold text-slate-900">49,99€</span>
+              <span class="text-base font-black text-slate-950">49,99€</span>
               <span class="block text-[10px] text-slate-400 line-through">59,98€</span>
             </div>
           </div>
         </label>
 
-        <!-- Pack 3 (Best Value / Recommended) -->
-        <label class="bundle-card block relative bg-indigo-50/50 border-2 border-indigo-600 rounded-xl p-3.5 cursor-pointer shadow-sm">
+        <!-- Pack 3 (Recommended Conversion Driver) -->
+        <label class="bundle-card block relative bg-indigo-50/70 border-2 border-indigo-600 rounded-2xl p-4 cursor-pointer shadow-md shadow-indigo-100">
           <input type="radio" name="bundle" value="pack3" checked class="hidden" onchange="selectBundle('pack3')">
-          <span class="absolute -top-2.5 right-3 bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Recomendado • Ahorra 30%</span>
+          <span class="absolute -top-3 right-4 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow">
+            ⭐ MÁS POPULAR • AHORRA 30%
+          </span>
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
               <span class="radio-indicator w-5 h-5 rounded-full border-2 border-indigo-600 bg-indigo-600 flex items-center justify-center">
                 <span class="w-2 h-2 rounded-full bg-white"></span>
               </span>
               <div>
-                <p class="text-sm font-bold text-slate-900">Pack 3 Camisetas (Semana Completa)</p>
-                <p class="text-xs text-indigo-700 font-semibold">21,66€ / unidad • Envío Gratis</p>
+                <p class="text-sm font-extrabold text-slate-900">Pack 3 Camisetas (Semana Laboral)</p>
+                <p class="text-xs text-indigo-700 font-bold">21,66€ / unidad • Envío 24H Gratis</p>
               </div>
             </div>
             <div class="text-right">
-              <span class="text-base font-extrabold text-indigo-600">64,99€</span>
+              <span class="text-lg font-black text-indigo-600">64,99€</span>
               <span class="block text-[10px] text-slate-400 line-through">89,97€</span>
             </div>
           </div>
@@ -138,138 +185,211 @@
       </div>
     </div>
 
-    <!-- Size & Color Selection -->
-    <div class="bg-white rounded-xl p-4 border border-slate-200 mb-5">
+    <!-- Size & Color Customization -->
+    <div class="bg-white rounded-2xl p-4 border border-slate-200 mb-5 shadow-sm">
       <div class="mb-3">
-        <label class="text-xs font-bold text-slate-700 block mb-1.5">Talla (Tallaje habitual europeo):</label>
+        <div class="flex justify-between items-center mb-1.5">
+          <label class="text-xs font-black text-slate-800">1. Selecciona tu Talla:</label>
+          <span class="text-[11px] text-indigo-600 font-bold cursor-pointer underline">Tallaje europeo habitual</span>
+        </div>
         <div class="grid grid-cols-4 gap-2" id="size-options">
-          <button type="button" onclick="selectSize('S')" class="size-btn py-2 text-xs font-bold border border-slate-200 rounded-lg text-slate-700 hover:border-slate-800">S</button>
-          <button type="button" onclick="selectSize('M')" class="size-btn py-2 text-xs font-bold border-2 border-slate-900 bg-slate-900 text-white rounded-lg">M</button>
-          <button type="button" onclick="selectSize('L')" class="size-btn py-2 text-xs font-bold border border-slate-200 rounded-lg text-slate-700 hover:border-slate-800">L</button>
-          <button type="button" onclick="selectSize('XL')" class="size-btn py-2 text-xs font-bold border border-slate-200 rounded-lg text-slate-700 hover:border-slate-800">XL</button>
+          <button type="button" onclick="selectSize(this, 'S')" class="size-btn py-2 text-xs font-bold border border-slate-200 rounded-xl text-slate-700 hover:border-slate-800">S</button>
+          <button type="button" onclick="selectSize(this, 'M')" class="size-btn py-2 text-xs font-black border-2 border-slate-900 bg-slate-900 text-white rounded-xl">M</button>
+          <button type="button" onclick="selectSize(this, 'L')" class="size-btn py-2 text-xs font-bold border border-slate-200 rounded-xl text-slate-700 hover:border-slate-800">L</button>
+          <button type="button" onclick="selectSize(this, 'XL')" class="size-btn py-2 text-xs font-bold border border-slate-200 rounded-xl text-slate-700 hover:border-slate-800">XL</button>
         </div>
       </div>
+
       <div>
-        <label class="text-xs font-bold text-slate-700 block mb-1.5">Color:</label>
-        <div class="flex space-x-2">
-          <button type="button" class="px-3 py-1.5 text-xs font-bold bg-white border-2 border-slate-900 rounded-lg text-slate-900">Blanco Óptico</button>
-          <button type="button" class="px-3 py-1.5 text-xs font-medium bg-slate-50 border border-slate-200 rounded-lg text-slate-600">Negro Noche</button>
-          <button type="button" class="px-3 py-1.5 text-xs font-medium bg-slate-50 border border-slate-200 rounded-lg text-slate-600">Beige Invisible</button>
+        <label class="text-xs font-black text-slate-800 block mb-1.5">2. Color (Invisible bajo camisas):</label>
+        <div class="grid grid-cols-3 gap-2">
+          <button type="button" class="py-1.5 text-xs font-bold bg-white border-2 border-slate-900 rounded-xl text-slate-900">Blanco Óptico</button>
+          <button type="button" class="py-1.5 text-xs font-medium bg-slate-50 border border-slate-200 rounded-xl text-slate-600">Negro Noche</button>
+          <button type="button" class="py-1.5 text-xs font-medium bg-slate-50 border border-slate-200 rounded-xl text-slate-600">Beige Piel</button>
         </div>
       </div>
     </div>
 
-    <!-- Direct Checkout Action Button -->
-    <button id="cta-button" onclick="handleCheckout()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base py-4 rounded-xl shadow-lg shadow-emerald-600/30 transition-transform active:scale-95 flex items-center justify-center space-x-2 mb-3">
+    <!-- High-Converting CTA Button -->
+    <button id="cta-button" onclick="handleCheckout()" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-black text-base py-4 rounded-2xl shadow-xl shadow-emerald-600/30 transition-all active:scale-95 flex items-center justify-center space-x-2 mb-3">
       <span>PEDIR AHORA CON DESCUENTO</span>
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
     </button>
 
-    <!-- Payment Badges / Bizum Security -->
-    <div class="flex items-center justify-center space-x-4 text-[11px] text-slate-500 mb-6">
-      <span class="flex items-center">🔒 Pago 100% Seguro</span>
-      <span>•</span>
-      <span class="font-bold text-slate-700">Bizum</span>
-      <span>•</span>
-      <span>Apple Pay</span>
-      <span>•</span>
-      <span>Visa / Mastercard</span>
-    </div>
-
-    <!-- Comparison Table (VIBA vs Others) -->
-    <div class="bg-white rounded-2xl p-4 border border-slate-200 mb-6">
-      <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3 text-center">¿Por qué elegir nuestra camiseta técnica?</h3>
-      <div class="overflow-x-auto">
-        <table class="w-full text-xs text-left">
-          <thead>
-            <tr class="border-b border-slate-100">
-              <th class="py-2 text-slate-600">Característica</th>
-              <th class="py-2 text-indigo-600 font-extrabold">VIBA Tech</th>
-              <th class="py-2 text-slate-400">Camiseta Normal</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr>
-              <td class="py-2.5 font-medium text-slate-800">Bloqueo de aureolas</td>
-              <td class="py-2.5 text-emerald-600 font-bold">✓ 100% Seguro</td>
-              <td class="py-2.5 text-rose-500">✗ Traspasa en minutos</td>
-            </tr>
-            <tr>
-              <td class="py-2.5 font-medium text-slate-800">Cuello invisible</td>
-              <td class="py-2.5 text-emerald-600 font-bold">✓ No se asoma</td>
-              <td class="py-2.5 text-rose-500">✗ Visible bajo camisa</td>
-            </tr>
-            <tr>
-              <td class="py-2.5 font-medium text-slate-800">Neutraliza olores</td>
-              <td class="py-2.5 text-emerald-600 font-bold">✓ Fibras de plata</td>
-              <td class="py-2.5 text-rose-500">✗ Acumula bacterias</td>
-            </tr>
-            <tr>
-              <td class="py-2.5 font-medium text-slate-800">Garantía de cambio</td>
-              <td class="py-2.5 text-emerald-600 font-bold">✓ 30 días sin riesgo</td>
-              <td class="py-2.5 text-slate-400">-</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Payment Badges / Bizum Trust Badges -->
+    <div class="bg-white rounded-xl p-3 border border-slate-200 flex flex-wrap items-center justify-around gap-2 text-xs font-bold text-slate-700 mb-6">
+      <div class="flex items-center space-x-1">
+        <span class="text-indigo-600 font-extrabold text-sm">Bizum</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <span> Apple Pay</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <span>G Pay</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <span>Visa / Mastercard</span>
+      </div>
+      <div class="flex items-center space-x-1 text-emerald-600">
+        <span>🔒 SSL 256-Bit</span>
       </div>
     </div>
 
-    <!-- Customer Testimonials -->
-    <div class="space-y-3 mb-6">
-      <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-500 text-center">Opiniones Verificadas</h3>
-      <div class="bg-white p-3.5 rounded-xl border border-slate-200">
-        <div class="flex items-center justify-between mb-1">
-          <span class="font-bold text-xs text-slate-900">Carlos M. — Madrid</span>
-          <span class="text-amber-400 text-xs">★★★★★</span>
-        </div>
-        <p class="text-xs text-slate-600">"Trabajo con traje en consultoría y siempre sufría con las camisas celestes. Literalmente salva mis reuniones. Cero manchas en todo el día."</p>
-      </div>
-      <div class="bg-white p-3.5 rounded-xl border border-slate-200">
-        <div class="flex items-center justify-between mb-1">
-          <span class="font-bold text-xs text-slate-900">Javier R. — Valencia</span>
-          <span class="text-amber-400 text-xs">★★★★★</span>
-        </div>
-        <p class="text-xs text-slate-600">"El pack de 3 es la mejor opción. No se nota nada debajo de la ropa y el tejido es finísimo. Envío súper rápido."</p>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="bg-white rounded-xl p-4 border border-slate-200 space-y-3">
-      <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Preguntas Frecuentes</h3>
-      <div>
-        <p class="font-bold text-xs text-slate-800">¿Cómo se lava la camiseta?</p>
-        <p class="text-xs text-slate-500 mt-0.5">En lavadora normal a 30°C. No usar lejía ni suavizante para no obstruir los poros de la membrana impermeable.</p>
+    <!-- Risk-Free Guarantee Section -->
+    <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4 flex items-start space-x-3 mb-6">
+      <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex-shrink-0 flex items-center justify-center font-black text-base shadow">
+        30
       </div>
       <div>
-        <p class="font-bold text-xs text-slate-800">¿Se nota debajo de una camisa fina?</p>
-        <p class="text-xs text-slate-500 mt-0.5">No. El corte ajustado y el cuello profundo en V hacen que sea completamente invisible incluso con el primer botón abierto.</p>
+        <h3 class="text-xs font-black uppercase text-emerald-900 tracking-wide">Garantía Total de 30 Días Sin Riesgo</h3>
+        <p class="text-xs text-emerald-800 mt-0.5 leading-relaxed">
+          Pruébala en tu trabajo o evento más exigente. Si una sola gota de sudor traspasa tu camisa, te devolvemos el 100% de tu dinero sin preguntas.
+        </p>
+      </div>
+    </div>
+
+    <!-- Comparative Table (VIBA vs Camisetas Normales) -->
+    <div class="bg-white rounded-2xl p-4 border border-slate-200 mb-6 shadow-sm">
+      <h3 class="text-xs font-black uppercase tracking-wider text-slate-500 mb-3 text-center">VIBA™ vs Otras Opciones</h3>
+      <table class="w-full text-xs text-left">
+        <thead>
+          <tr class="border-b border-slate-100">
+            <th class="py-2 text-slate-500">Beneficio</th>
+            <th class="py-2 text-indigo-600 font-extrabold">VIBA Tech</th>
+            <th class="py-2 text-slate-400">Camiseta Normal</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr>
+            <td class="py-2.5 font-bold text-slate-800">Bloqueo de aureolas</td>
+            <td class="py-2.5 text-emerald-600 font-extrabold">✓ 100% Garantizado</td>
+            <td class="py-2.5 text-rose-500 font-semibold">✗ Traspasa en 30 min</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-bold text-slate-800">Cuello V profundo</td>
+            <td class="py-2.5 text-emerald-600 font-extrabold">✓ 100% Invisible</td>
+            <td class="py-2.5 text-rose-500 font-semibold">✗ Se asoma por la camisa</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-bold text-slate-800">Tecnología anti-olor</td>
+            <td class="py-2.5 text-emerald-600 font-extrabold">✓ Fibras de plata</td>
+            <td class="py-2.5 text-rose-500 font-semibold">✗ Olor persistente</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-bold text-slate-800">Envío Express España</td>
+            <td class="py-2.5 text-emerald-600 font-extrabold">✓ 24/48 Horas</td>
+            <td class="py-2.5 text-slate-400">3 a 7 días</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- High-Converting Photo Reviews (Preuve Sociale Maximale) -->
+    <div class="mb-6">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Opiniones y Fotos de Clientes</h3>
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">✓ 8.740 Verificadas</span>
+      </div>
+
+      <div class="space-y-3">
+        
+        <!-- Review 1 -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center space-x-2">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+              <div>
+                <p class="text-xs font-black text-slate-900">Alejandro S. <span class="text-[10px] text-emerald-600 font-bold ml-1">✓ Compra verificada</span></p>
+                <p class="text-[10px] text-slate-400">Madrid • Consultor Financiero</p>
+              </div>
+            </div>
+            <span class="text-amber-400 text-xs font-bold">★★★★★</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2.5">
+            "Tenía pánico a quitarme la chaqueta de traje en las reuniones por culpa de las marcas de sudor. Esta camiseta literalmente cambió mi vida profesional. Camisa azul claro impecable tras 10 horas."
+          </p>
+          <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&auto=format&fit=crop&q=80" alt="Prueba de camisa sin sudor" class="rounded-xl w-32 h-20 object-cover border border-slate-100">
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center space-x-2">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+              <div>
+                <p class="text-xs font-black text-slate-900">Marcos D. <span class="text-[10px] text-emerald-600 font-bold ml-1">✓ Compra verificada</span></p>
+                <p class="text-[10px] text-slate-400">Barcelona • Comercial Inmobiliario</p>
+              </div>
+            </div>
+            <span class="text-amber-400 text-xs font-bold">★★★★★</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed mb-2.5">
+            "Pedí primero 1 para probar y al día siguiente pedí el Pack de 3. El tejido es ultra ligero y no da nada de calor. Cero sudor, cero olor. No uso otra cosa ya."
+          </p>
+          <div class="flex space-x-2">
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=300&auto=format&fit=crop&q=80" alt="Foto camiseta colocada" class="rounded-xl w-24 h-20 object-cover border border-slate-100">
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center space-x-2">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+              <div>
+                <p class="text-xs font-black text-slate-900">Gonzalo T. <span class="text-[10px] text-emerald-600 font-bold ml-1">✓ Compra verificada</span></p>
+                <p class="text-[10px] text-slate-400">Valencia • Eventos y Hostelería</p>
+              </div>
+            </div>
+            <span class="text-amber-400 text-xs font-bold">★★★★★</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            "La entrega tardó menos de 24h con Correos Express. El cuello en V queda súper bajo así que puedes llevar 2 botones desabrochados sin que se note nada."
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="bg-white rounded-2xl p-4 border border-slate-200 space-y-3 mb-6">
+      <h3 class="text-xs font-black uppercase tracking-wider text-slate-500">Preguntas Frecuentes</h3>
+      <div>
+        <p class="font-black text-xs text-slate-900">¿Cómo funciona la triple capa impermeable?</p>
+        <p class="text-xs text-slate-600 mt-0.5">La primera capa absorbe la humedad, la segunda es una membrana microscópica impermeable y transpirable que bloquea el líquido, y la tercera neutraliza bacterias para evitar el olor corporal.</p>
+      </div>
+      <div>
+        <p class="font-black text-xs text-slate-900">¿Qué pasa si me equivoco de talla?</p>
+        <p class="text-xs text-slate-600 mt-0.5">Los cambios de talla son totalmente gratuitos durante 30 días. Te enviamos la nueva talla sin coste.</p>
+      </div>
+      <div>
+        <p class="font-black text-xs text-slate-900">¿Cómo se paga con Bizum?</p>
+        <p class="text-xs text-slate-600 mt-0.5">Al pulsar el botón 'Pedir Ahora', accedes a la pasarela oficial donde seleccionas Bizum, introduces tu teléfono y validas en tu app bancaria al instante.</p>
       </div>
     </div>
 
   </main>
 
-  <!-- Sticky Bottom Bar for Mobile -->
-  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-3 shadow-2xl z-50 md:hidden">
+  <!-- Sticky Bottom Checkout Bar (Mobile CRO) -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-slate-200 p-3 shadow-2xl z-50">
     <div class="max-w-xl mx-auto flex items-center justify-between">
       <div>
-        <span class="text-[10px] text-slate-500 block">Total con descuento:</span>
-        <span id="sticky-price" class="text-lg font-extrabold text-indigo-600">64,99€</span>
+        <span class="text-[10px] font-bold text-slate-400 block uppercase">Total Seleccionado:</span>
+        <span id="sticky-price" class="text-xl font-black text-indigo-600">64,99€</span>
       </div>
-      <button onclick="handleCheckout()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-2.5 px-6 rounded-xl shadow-md flex items-center space-x-1.5">
+      <button onclick="handleCheckout()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm py-3 px-6 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center space-x-1.5 active:scale-95 transition-transform">
         <span>PEDIR AHORA</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
       </button>
     </div>
   </div>
 
   <script>
-    // Configuration du Shopify Store
+    // Remplacez par votre domaine et variantes Shopify
     const SHOPIFY_STORE = 'votre-boutique.myshopify.com';
-    
-    // Remplacez par vos vrais IDs de variantes Shopify
     const VARIANTS = {
       pack1: { id: '40000000000001', qty: 1, price: '29,99€', discount: '' },
-      pack2: { id: '40000000000002', qty: 2, price: '49,99€', discount: 'PACK2_15' },
+      pack2: { id: '40000000000002', qty: 2, price: '49,99€', discount: 'PACK2_10' },
       pack3: { id: '40000000000003', qty: 3, price: '64,99€', discount: 'PACK3_25' }
     };
 
@@ -282,7 +402,7 @@
       
       const cards = document.querySelectorAll('.bundle-card');
       cards.forEach(card => {
-        card.classList.remove('border-indigo-600', 'bg-indigo-50/50');
+        card.classList.remove('border-indigo-600', 'bg-indigo-50/70', 'shadow-md', 'shadow-indigo-100');
         card.classList.add('border-slate-200', 'bg-white');
         const indicator = card.querySelector('.radio-indicator');
         indicator.innerHTML = '';
@@ -292,31 +412,67 @@
       const activeInput = document.querySelector(`input[value="${bundleKey}"]`);
       const activeCard = activeInput.closest('.bundle-card');
       activeCard.classList.remove('border-slate-200', 'bg-white');
-      activeCard.classList.add('border-indigo-600', 'bg-indigo-50/50');
+      activeCard.classList.add('border-indigo-600', 'bg-indigo-50/70', 'shadow-md', 'shadow-indigo-100');
       const activeIndicator = activeCard.querySelector('.radio-indicator');
       activeIndicator.className = 'radio-indicator w-5 h-5 rounded-full border-2 border-indigo-600 bg-indigo-600 flex items-center justify-center';
       activeIndicator.innerHTML = '<span class="w-2 h-2 rounded-full bg-white"></span>';
     }
 
-    function selectSize(size) {
+    function selectSize(btn, size) {
       selectedSize = size;
       const buttons = document.querySelectorAll('.size-btn');
-      buttons.forEach(btn => {
-        btn.className = 'size-btn py-2 text-xs font-bold border border-slate-200 rounded-lg text-slate-700 hover:border-slate-800';
+      buttons.forEach(b => {
+        b.className = 'size-btn py-2 text-xs font-bold border border-slate-200 rounded-xl text-slate-700 hover:border-slate-800';
       });
-      event.target.className = 'size-btn py-2 text-xs font-bold border-2 border-slate-900 bg-slate-900 text-white rounded-lg';
+      btn.className = 'size-btn py-2 text-xs font-black border-2 border-slate-900 bg-slate-900 text-white rounded-xl';
     }
 
     function handleCheckout() {
       const bundle = VARIANTS[selectedBundle];
-      // Cart Permalink Shopify pour rediriger direct au checkout
       const discountParam = bundle.discount ? `?discount=${bundle.discount}` : '';
       const checkoutUrl = `https://${SHOPIFY_STORE}/cart/${bundle.id}:${bundle.qty}${discountParam}`;
-      
-      // Pour tester en local ou rediriger :
-      console.log('Redirecting to checkout:', checkoutUrl);
       window.location.href = checkoutUrl;
     }
+
+    // Urgency Countdown
+    let time = 702; // 11 min 42 sec
+    setInterval(() => {
+      if (time > 0) {
+        time--;
+        const m = Math.floor(time / 60).toString().padStart(2, '0');
+        const s = (time % 60).toString().padStart(2, '0');
+        document.getElementById('countdown-timer').innerText = `${m}:${s}`;
+      }
+    }, 1000);
+
+    // Live Fake Sales Popup Rotation (CRO Boost)
+    const buyers = [
+      { name: "David M.", city: "Sevilla", pack: "Pack 3 Camisetas" },
+      { name: "Raúl G.", city: "Madrid", pack: "Pack 3 Camisetas" },
+      { name: "Jordi V.", city: "Barcelona", pack: "Pack 2 Camisetas" },
+      { name: "Ignacio F.", city: "Bilbao", pack: "Pack 3 Camisetas" }
+    ];
+    let buyerIdx = 0;
+    const toast = document.getElementById('live-sales-toast');
+    
+    function showNextSale() {
+      const b = buyers[buyerIdx % buyers.length];
+      document.getElementById('buyer-name').innerText = b.name;
+      toast.classList.remove('translate-y-[-120%]', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-[-120%]', 'opacity-0');
+      }, 4500);
+
+      buyerIdx++;
+    }
+
+    setTimeout(() => {
+      showNextSale();
+      setInterval(showNextSale, 12000);
+    }, 3000);
   </script>
 </body>
 </html>
